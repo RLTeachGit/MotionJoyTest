@@ -4,13 +4,22 @@
 
 
 // Sets default values for this component's properties
-UForceSeatMIController::UForceSeatMIController()
+UForceSeatMIController::UForceSeatMIController() : mCurrentRoll(0), mCurrentPitch(0), mCurrentYaw(0)
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
+    
+    
+    memset(&PlatformPosition, 0, sizeof(PlatformPosition));
+    PlatformPosition.structSize = sizeof(PlatformPosition);
+    
+    // The demo program is able to provide pause, position and speed limit
+    PlatformPosition.maxSpeed = PLATFORM_MAX_SPEED;
+    PlatformPosition.mask     = FSMI_POS_BIT_STATE | FSMI_POS_BIT_POSITION | FSMI_POS_BIT_MAX_SPEED;
+    
 }
 
 

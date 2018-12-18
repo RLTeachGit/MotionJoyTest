@@ -33,5 +33,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "MotionControl")
 	void	End();
 
+    
+private:
+    float   mCurrentRoll;
+    float   mCurrentYaw;
+    float   mCurrentPitch;
 };
 
